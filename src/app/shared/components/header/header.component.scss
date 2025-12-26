@@ -1,0 +1,97 @@
+:host {
+	display: block;
+}
+
+.app-header {
+	height: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+	color: var(--text-white);
+	box-shadow: var(--shadow-sm);
+}
+
+.app-header .left {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.menu-btn {
+	background: transparent;
+	border: none;
+	color: inherit;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	background: var(--secondary-color);
+	color: var(--text-white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+}
+
+.title {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.icon-btn {
+	background: transparent;
+	border: none;
+	color: inherit;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.avatar {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background: var(--secondary-light);
+	color: var(--text-white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+}
+
+.user-info .name {
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+.user-info .role {
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.85);
+}

@@ -1,0 +1,310 @@
+/* ========================================
+   LOGIN COMPONENT STYLES
+   ======================================== */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 28px 24px;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-xl);
+  background-color: var(--bg-primary);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+.welcome-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ========================================
+   FORM
+   ======================================== */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.form-field ::ng-deep .mdc-notched-outline__leading,
+.form-field ::ng-deep .mdc-notched-outline__notch,
+.form-field ::ng-deep .mdc-notched-outline__trailing {
+  border-color: var(--border-color) !important;
+}
+
+.form-field ::ng-deep.mat-focused .mdc-notched-outline__leading,
+.form-field ::ng-deep.mat-focused .mdc-notched-outline__notch,
+.form-field ::ng-deep.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--primary-color) !important;
+}
+
+.form-field ::ng-deep .mat-mdc-floating-label {
+  color: var(--text-secondary) !important;
+}
+
+.form-field ::ng-deep.mat-focused .mat-mdc-floating-label,
+.form-field ::ng-deep.mat-form-field-invalid .mat-mdc-floating-label {
+  color: var(--primary-color) !important;
+}
+
+.form-field ::ng-deep .mat-mdc-input-element {
+  color: var(--text-primary) !important;
+  caret-color: var(--primary-color) !important;
+}
+
+.form-field ::ng-deep .mat-mdc-input-element::placeholder {
+  color: var(--text-light) !important;
+}
+
+.form-field ::ng-deep .mat-mdc-form-field-icon-prefix {
+  color: var(--text-secondary) !important;
+}
+
+.form-field ::ng-deep.mat-form-field-invalid .mdc-notched-outline__leading,
+.form-field ::ng-deep.mat-form-field-invalid .mdc-notched-outline__notch,
+.form-field ::ng-deep.mat-form-field-invalid .mdc-notched-outline__trailing {
+  border-color: var(--error-color) !important;
+}
+
+.form-field ::ng-deep.mat-form-field-invalid .mat-mdc-form-field-icon-prefix {
+  color: var(--error-color) !important;
+}
+
+.form-field ::ng-deep .mat-mdc-form-field-error {
+  color: var(--error-color) !important;
+  font-size: 12px;
+}
+
+/* ========================================
+   ICONS & BUTTONS
+   ======================================== */
+
+.pwd-toggle {
+  color: var(--text-secondary) !important;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-color) !important;
+  }
+}
+
+/* ========================================
+   FORGOT PASSWORD
+   ======================================== */
+
+.forgot-pwd {
+  text-align: right;
+  margin-bottom: 6px;
+}
+
+.forgot-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--secondary-dark);
+    text-decoration: underline;
+  }
+}
+
+/* ========================================
+   LOGIN BUTTON
+   ======================================== */
+
+.btn-login {
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  background-color: var(--button-primary) !important;
+  color: var(--text-white) !important;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-primary-hover) !important;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(30, 58, 138, 0.3);
+  }
+
+  &:disabled {
+    background-color: var(--text-light) !important;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.btn-text {
+  margin-left: 10px;
+}
+
+/* ========================================
+   ERROR MESSAGE
+   ======================================== */
+
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background-color: rgba(220, 38, 38, 0.1);
+  border-left: 4px solid var(--error-color);
+  border-radius: var(--border-radius);
+  color: var(--error-color);
+  font-size: 13px;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.login-footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.signup-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-left: 4px;
+
+  &:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 600px) {
+  .login-card {
+    padding: 22px 16px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .btn-login {
+    height: 38px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px 15px;
+  }
+
+  .login-header {
+    margin-bottom: 25px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .welcome-text {
+    font-size: 12px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+}
+

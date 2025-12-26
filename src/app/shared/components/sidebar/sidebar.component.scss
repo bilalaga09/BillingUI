@@ -1,0 +1,225 @@
+.app-sidebar {
+	width: 220px;
+	background: linear-gradient(180deg, var(--primary-lighter), var(--bg-secondary));
+	border-right: 1px solid var(--border-color);
+	min-height: calc(100vh - 64px);
+	padding-top: 12px;
+	transition: width 200ms ease;
+  overflow-y: auto;
+}
+
+.app-sidebar nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  margin: 0;
+}
+
+/* Parent menu items */
+.app-sidebar nav > ul > li {
+  position: relative;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, transform 160ms ease, box-shadow 180ms ease;
+  position: relative;
+  user-select: none;
+}
+
+.menu-item:active {
+  animation: clickEffect 300ms ease;
+}
+
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.menu-icon {
+  color: var(--primary-dark);
+  transition: color 180ms ease;
+  flex-shrink: 0;
+}
+
+.expand-icon {
+  margin-left: auto;
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.expand-icon.expanded {
+  transform: rotate(-180deg);
+}
+
+.label {
+  flex: 1;
+  transition: opacity 120ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Parent menu item - hover effect */
+.menu-item:hover {
+  background: linear-gradient(90deg, rgba(30,58,138,0.08), rgba(13,148,136,0.06));
+  color: var(--text-primary);
+  transform: translateX(2px);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.menu-item:hover .menu-icon {
+  color: var(--primary-dark);
+}
+
+/* Parent menu item - active effect */
+.app-sidebar nav > ul > li.active .menu-item {
+  background: linear-gradient(90deg, rgba(30,58,138,0.98), rgba(13,148,136,0.95));
+  color: var(--text-white);
+  transform: translateX(2px);
+  box-shadow: 0 4px 10px rgba(16,24,40,0.06);
+}
+
+.app-sidebar nav > ul > li.active .menu-icon {
+  color: var(--text-white);
+}
+
+/* Parent menu with expanded submenu (but child is active) - subtle state */
+.app-sidebar nav > ul > li.active > .menu-item:has(+ .submenu .active) {
+  background: linear-gradient(90deg, rgba(30,58,138,0.7), rgba(13,148,136,0.65));
+  color: var(--text-white);
+}
+
+/* Submenu styles */
+.submenu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 8px 8px 12px;
+  margin: 6px 0 0 0;
+  animation: slideDown 200ms ease;
+  background: rgba(30,58,138,0.04);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 140ms ease;
+  user-select: none;
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+
+.submenu-icon {
+  color: var(--primary-color);
+  transition: color 160ms ease;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+/* Submenu item - hover */
+.submenu-item:hover {
+  background: rgba(30,58,138,0.12);
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+
+.submenu-item:hover .submenu-icon {
+  color: var(--secondary-color);
+}
+
+/* Submenu item - active */
+.submenu li.active .submenu-item {
+  background: var(--primary-color);
+  color: var(--text-white);
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.15);
+  animation: itemActive 200ms ease;
+}
+
+.submenu li.active .submenu-icon {
+  color: var(--secondary-light);
+}
+
+@keyframes itemActive {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.submenu li {
+  position: relative;
+}
+
+/* Collapsed sidebar styles */
+.app-sidebar.collapsed {
+  width: 64px;
+}
+
+.app-sidebar.collapsed .label {
+  display: none;
+}
+
+.app-sidebar.collapsed .expand-icon {
+  display: none;
+}
+
+.app-sidebar.collapsed .submenu {
+  display: none;
+}
+
+.app-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(30,58,138,0.3);
+  border-radius: 3px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(30,58,138,0.5);
+}
