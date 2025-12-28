@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Notification, NotificationState } from './notification.model';
+import { Notification, NotificationState } from './notification.state';
 import * as NotificationActions from './notification.actions';
 
 export const initialState: NotificationState = {

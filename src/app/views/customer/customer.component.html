@@ -1,1 +1,55 @@
-<p>customer works!</p>
+<div class="page-header d-flex align-items-center justify-content-between mb-3">
+	<h2>Customer Master</h2>
+	<button class="btn btn-primary" (click)="onAdd()">Add New Customer</button>
+</div>
+
+<div class="mb-3 d-flex">
+	<input class="form-control me-2" placeholder="Search customers..." [(ngModel)]="search" (ngModelChange)="onSearch($event)" />
+	<select class="form-select" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange($event)" style="width:120px">
+		<option [value]="5">5</option>
+		<option [value]="10">10</option>
+		<option [value]="20">20</option>
+	</select>
+</div>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let c of customers$ | async">
+				<td>{{ c.name }}</td>
+				<td>{{ c.email }}</td>
+				<td>{{ c.phone }}</td>
+				<td>
+					<button class="btn btn-sm btn-outline-secondary me-1" (click)="onEdit(c)">Edit</button>
+					<button class="btn btn-sm btn-outline-danger" (click)="onDelete(c)">Delete</button>
+				</td>
+			</tr>
+			<tr *ngIf="(customers$ | async)?.length === 0">
+				<td colspan="4" class="text-center">No customers found</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<nav *ngIf="total$ | async as total">
+	<ul class="pagination">
+		<li class="page-item" [class.disabled]="page===1">
+			<a class="page-link" (click)="setPage(page-1)">Prev</a>
+		</li>
+		<li class="page-item" *ngFor="let p of pages" [class.active]="p===page">
+			<a class="page-link" (click)="setPage(p)">{{ p }}</a>
+		</li>
+		<li class="page-item" [class.disabled]="page===totalPages">
+			<a class="page-link" (click)="setPage(page+1)">Next</a>
+		</li>
+	</ul>
+	<div class="small text-muted">Showing page {{page}} of {{ totalPages }} ({{ total }} records)</div>
+</nav>
