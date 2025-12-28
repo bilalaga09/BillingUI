@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+/* ========================================
+   ANGULAR MATERIAL THEME
+   ======================================== */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* ========================================
+   GLOBAL STYLES & COLOR SYSTEM
+   ======================================== */
+
+/* Define CSS Variables for the entire app */
+:root {
+  /* Primary Colors - Deep Blue (Professional ERP) */
+  --primary-color: #1e3a8a;           /* Deep Blue */
+  --primary-light: #3b82f6;           /* Light Blue */
+  --primary-dark: #1e40af;            /* Darker Blue */
+  --primary-lighter: #dbeafe;         /* Very Light Blue */
+  
+  /* Secondary Colors - Teal (Accent) */
+  --secondary-color: #0d9488;         /* Teal */
+  --secondary-light: #14b8a6;         /* Light Teal */
+  --secondary-dark: #0f766e;          /* Dark Teal */
+  --secondary-lighter: #ccfbf1;       /* Very Light Teal */
+  
+  /* Text Colors */
+  --text-primary: #111827;            /* Dark Gray - Main Text */
+  --text-secondary: #6b7280;          /* Medium Gray - Secondary Text */
+  --text-light: #9ca3af;              /* Light Gray - Disabled Text */
+  --text-white: #ffffff;              /* White Text */
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;              /* White Background */
+  --bg-secondary: #f9fafb;            /* Light Gray Background */
+  --bg-tertiary: #f3f4f6;             /* Medium Gray Background */
+  --bg-dark: #1f2937;                 /* Dark Background */
+  
+  /* Button Colors */
+  --button-primary: #1e3a8a;          /* Primary Button */
+  --button-primary-hover: #1e40af;    /* Primary Button Hover */
+  --button-primary-active: #1e3a8a;   /* Primary Button Active */
+  --button-secondary: #0d9488;        /* Secondary Button */
+  --button-secondary-hover: #0f766e;  /* Secondary Button Hover */
+  
+  /* Status Colors */
+  --success-color: #059669;           /* Success Green */
+  --warning-color: #d97706;           /* Warning Orange */
+  --error-color: #dc2626;             /* Error Red */
+  --info-color: #0284c7;              /* Info Blue */
+  
+  /* Border Colors */
+  --border-color: #e5e7eb;            /* Light Border */
+  --border-color-dark: #d1d5db;       /* Medium Border */
+  --border-color-light: #f3f4f6;      /* Very Light Border */
+  
+  /* Shadow */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  
+  /* Spacing & Typography */
+  --border-radius: 6px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.5;
+}

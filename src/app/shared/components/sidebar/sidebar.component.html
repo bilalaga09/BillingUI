@@ -1,0 +1,30 @@
+<div class="app-sidebar" [class.collapsed]="!isOpen">
+    <nav>
+    <ul>
+      <li *ngFor="let item of items" [class.active]="isItemActive(item)">
+        <!-- Parent menu item with children (expandable) -->
+        <div *ngIf="item.children" class="menu-item" (click)="toggleExpand(item)">
+          <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+          <span class="label">{{ item.label }}</span>
+          <mat-icon class="expand-icon" [class.expanded]="item.expanded">expand_more</mat-icon>
+        </div>
+
+        <!-- Parent menu item without children (direct navigation) -->
+        <div *ngIf="!item.children" class="menu-item" (click)="navigate(item)">
+          <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+          <span class="label">{{ item.label }}</span>
+        </div>
+
+        <!-- Submenu items -->
+        <ul class="submenu" *ngIf="item.children && item.expanded">
+          <li *ngFor="let child of item.children" [class.active]="activeRoute.startsWith(child.route || '')">
+            <div class="submenu-item" (click)="navigate(child)">
+              <mat-icon class="submenu-icon">{{ child.icon }}</mat-icon>
+              <span class="label">{{ child.label }}</span>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    </nav>
+</div>

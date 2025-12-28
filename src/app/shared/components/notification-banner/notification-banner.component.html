@@ -1,0 +1,14 @@
+<div class="notification-container">
+  <div *ngFor="let notification of notifications$ | async" 
+       [ngClass]="getNotificationClass(notification)"
+       class="notification"
+       @slideInOut>
+    <mat-icon class="notification-icon">{{ getNotificationIcon(notification.notificationType) }}</mat-icon>
+    <div class="notification-content">
+      <p class="notification-message">{{ notification.message }}</p>
+    </div>
+    <button class="notification-close" (click)="removeNotification(notification.id)" aria-label="Close notification">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
