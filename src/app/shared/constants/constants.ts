@@ -14,7 +14,7 @@ export const MENU_ITEMS: MenuItem[] = [
     expanded: false,
     children: [
       { label: 'Customers', route: '/home/customers', icon: 'person' },
-      { label: 'Vendors', route: '/home/vendors', icon: 'person_add' },
+      { label: 'Suppliers', route: '/home/suppliers', icon: 'person_add' },
       { label: 'Products', route: '/home/products', icon: 'inventory_2' },
       { label: 'Categories', route: '/home/categories', icon: 'category' },
       { label: 'Units of Measure', route: '/home/units', icon: 'straighten' },

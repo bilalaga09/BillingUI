@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { NotificationType } from './notification.model';
+import { NotificationType } from './notification.state';
 
 export const showNotification = createAction(
   '[Notification] Show Notification',

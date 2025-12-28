@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../base/base-component';
+import { loadCurrentUser } from '../../core/store/user/user.actions';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,11 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent extends BaseComponent implements OnInit {
+  
+  ngOnInit(): void {
+
+    this.store.dispatch(loadCurrentUser());
+  }
 
 }

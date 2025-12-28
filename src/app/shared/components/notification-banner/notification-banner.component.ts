@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { selectAllNotifications } from '../../../core/store/notification/notification.selectors';
 import * as NotificationActions from '../../../core/store/notification/notification.actions';
-import { Notification } from '../../../core/store/notification/notification.model';
+import { Notification } from '../../../core/store/notification/notification.state';
 
 @Component({
   selector: 'app-notification-banner',
