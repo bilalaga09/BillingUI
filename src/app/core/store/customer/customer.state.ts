@@ -1,9 +1,14 @@
 export interface Customer {
-  id: string | number;
+  id: number;
+  tenantId: number;
   name: string;
-  email?: string;
-  phone?: string;
-}
+  phone: string;
+  email: string;
+  address?: string;
+  gstNumber?: string;
+  createdAt?: string; 
+  active: string;
+} 
 
 export interface CustomerState {
   customers: Customer[];

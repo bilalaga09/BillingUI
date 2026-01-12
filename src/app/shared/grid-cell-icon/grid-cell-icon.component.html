@@ -1,0 +1,9 @@
+<span
+  class="mouse-pointer p1-4 mt-4 size-90 material-symbols-outlined b-1"
+  [ngClass]="icon.class"
+  [title]="getTitle(icon)"
+  *ngFor="let icon of icons"
+  (click)="iconClicked(icon.type)"
+>
+  {{ icon.type }}
+</span>

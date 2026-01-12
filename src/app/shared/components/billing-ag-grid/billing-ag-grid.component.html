@@ -1,0 +1,10 @@
+<div class="billing-grid-wrapper" [style.height]="height">
+  <h2>{{ title }}</h2>
+
+  <ag-grid-angular
+    class="ag-theme-balham grid-style"
+    [columnDefs]="columnDefs"
+    [rowData]="rowData"
+    [gridOptions]="gridOptions"
+  ></ag-grid-angular>
+</div>
