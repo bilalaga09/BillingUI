@@ -4,6 +4,7 @@ import { Subject } from "rxjs";
 import { AuthService } from "../../core/auth/auth.service";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
+import { UtilityService } from "../../shared/services/utility.service";
 
 @Injectable()
 
@@ -12,6 +13,7 @@ export abstract class BaseComponent implements OnDestroy{
 
     protected readonly billingService = inject(BillingService);
     protected readonly authService = inject(AuthService);
+    protected readonly utilityService = inject(UtilityService);
     protected readonly router = inject(Router);
     protected readonly destroy$ = new Subject<void>();
     protected readonly store = inject(Store);

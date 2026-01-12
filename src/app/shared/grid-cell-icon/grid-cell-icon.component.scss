@@ -1,0 +1,17 @@
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin-right: 5px;
+}
+.hidden {
+  display: none;
+}
+.icon-radius {
+  border-radius: 50%;
+}
+
+.mouse-pointer{
+  cursor: pointer !important;
+}

@@ -31,12 +31,18 @@ import { UserEffects } from './core/store/user/user.effect';
 import { CustomerEffects } from './core/store/customer/customer.effect';
 import { EffectsModule } from '@ngrx/effects';
 
-
-export const metaReducers: MetaReducer[] =
-  !environment.production ? [loggerMetaReducer] : [];
+export const metaReducers: MetaReducer[] = !environment.production
+  ? [loggerMetaReducer]
+  : [];
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CustomerComponent, DashboardComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    CustomerComponent,
+    DashboardComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -52,13 +58,15 @@ export const metaReducers: MetaReducer[] =
     MatProgressSpinnerModule,
     SharedModule,
     StoreModule.forRoot(appReducers, { metaReducers }),
-    EffectsModule.forRoot([UserEffects, CustomerEffects])
+    EffectsModule.forRoot([UserEffects, CustomerEffects]),
   ],
-  providers: [{
+  providers: [
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
