@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { CustomerComponent } from './views/customer/customer.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
@@ -30,6 +31,7 @@ import { environment } from '../environments/environment';
 import { UserEffects } from './core/store/user/user.effect';
 import { CustomerEffects } from './core/store/customer/customer.effect';
 import { EffectsModule } from '@ngrx/effects';
+import { EditCustomerComponent } from './views/customer/edit-customer/edit-customer.component';
 
 export const metaReducers: MetaReducer[] = !environment.production
   ? [loggerMetaReducer]
@@ -42,6 +44,7 @@ export const metaReducers: MetaReducer[] = !environment.production
     CustomerComponent,
     DashboardComponent,
     HomeComponent,
+    EditCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ export const metaReducers: MetaReducer[] = !environment.production
     FormsModule,
     MatProgressSpinnerModule,
     SharedModule,
+    MatDialogModule,
     StoreModule.forRoot(appReducers, { metaReducers }),
     EffectsModule.forRoot([UserEffects, CustomerEffects]),
   ],

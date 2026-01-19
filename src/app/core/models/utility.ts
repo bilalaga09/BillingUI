@@ -6,3 +6,7 @@ export class Attribute {
   event?: CellClickedEvent;
 }
 
+export interface IconParam {
+  icons?: Array<{ type: string; class: string; icon: string; title: string; openFrom: string }>;
+}
+

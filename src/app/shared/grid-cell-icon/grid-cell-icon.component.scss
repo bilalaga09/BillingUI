@@ -1,17 +1,16 @@
-.icon-container {
+.action-icons {
   display: flex;
-  align-items: center;
-}
-.icon {
-  margin-right: 5px;
-}
-.hidden {
-  display: none;
-}
-.icon-radius {
-  border-radius: 50%;
+  gap: 12px;
+  padding-top: 6px;
 }
 
-.mouse-pointer{
-  cursor: pointer !important;
+.action-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.action-icon {
+  font-size: 16px;
 }

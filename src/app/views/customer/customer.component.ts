@@ -23,9 +23,6 @@ export class CustomerComponent
   customers$: Observable<Customer[]> = this.store.select(
     fromCustomer.selectAllCustomers
   );
-  // total$: Observable<number> = this.store.select(
-  //   fromCustomer.selectCustomerTotal
-  // );
 
   page = 1;
   pageSize = 10;
@@ -33,17 +30,23 @@ export class CustomerComponent
   pages: number[] = [];
 
   search = '';
-  private search$ = new Subject<string>();
-  private subs = new Subscription();
 
-  // icons = [
-  //   { icon: 'edit', class: 'btn btn-sm btn-outline-primary' },
-  //   { icon: 'delete', class: 'btn btn-sm btn-outline-danger' },
-  // ];
   icons = [
-    { type: 'edit', class: 'blue-800-fg', title: 'Edit Customer' },
-    { type: 'delete', class: 'red-800-fg', title: 'Delete Customer' },
-  ];
+  {
+    type: 'edit',
+    icon: 'edit',
+    class: 'blue-800-fg',
+    title: 'Edit',
+    openFrom: 'customer',
+  },
+  {
+    type: 'delete',
+    icon: 'delete',
+    class: 'red-800-fg',
+    title: 'Delete',
+    openFrom: 'customer',
+  },
+];
 
   // AG Grid configuration
   columnDefs: ColDef[] = [
@@ -91,8 +94,9 @@ export class CustomerComponent
       headerName: 'Actions',
       colId: 'action',
       filter: false,
-      editable: false,
+      editable: true,
       pinned: 'left',
+      maxWidth: 80,
       cellRenderer: GridCellIconComponent,
       cellRendererParams: (params: ICellRendererParams) => {
         if (params.node.rowPinned !== 'bottom') {
